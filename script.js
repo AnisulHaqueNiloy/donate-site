@@ -119,7 +119,12 @@ button3.addEventListener("click", function () {
 
   const main = parseFloat(main_balance.innerText);
 
-  if (isNaN(donate_input) || donate_input <= 0) {
+  if (
+    isNaN(donate_input) ||
+    donate_input <= 0 ||
+    donate_input === "" ||
+    !/^\d+(\.\d+)?$/.test(donate_input)
+  ) {
     window.alert("insert a valid amount");
     return;
   }
